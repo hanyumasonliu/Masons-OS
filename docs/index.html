@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mason's OS | Weekly Rhythm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-gradient"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="kicker">Consistency > intensity</p>
+          <h1>Mason's OS</h1>
+          <p class="subtitle">
+            A local, editable rhythm for deep work, training, relationships, and
+            recovery. All changes are saved in this browser only.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div>
+            <p class="label">Today</p>
+            <h2 id="todayLabel">—</h2>
+          </div>
+          <div>
+            <p class="label">Focus</p>
+            <p id="todayTheme" class="focus">—</p>
+          </div>
+          <div class="hero-actions">
+            <button id="toggleEdit" class="btn ghost">Edit Schedule</button>
+            <button id="resetToday" class="btn">Clear Today</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="layout">
+        <section class="panel schedule">
+          <div class="panel-header">
+            <div>
+              <h3>Weekly Schedule</h3>
+              <p class="muted">
+                Tap a day to view. Checkboxes track progress for that day's date.
+              </p>
+            </div>
+            <div class="panel-actions">
+              <button id="toggleWhy" class="btn ghost">Hide Why</button>
+            </div>
+          </div>
+
+          <div id="dayTabs" class="day-tabs"></div>
+
+          <div class="day-meta">
+            <div>
+              <p class="label">Day Title</p>
+              <p id="dayTitle" class="meta-value" contenteditable="false"></p>
+            </div>
+            <div>
+              <p class="label">Theme</p>
+              <p id="dayTheme" class="meta-value" contenteditable="false"></p>
+            </div>
+            <div>
+              <p class="label">Short-Term Goal</p>
+              <p id="dayShort" class="meta-value" contenteditable="false"></p>
+            </div>
+            <div>
+              <p class="label">Long-Term Goal</p>
+              <p id="dayLong" class="meta-value" contenteditable="false"></p>
+            </div>
+          </div>
+
+          <div class="progress-row">
+            <p class="muted" id="progressLabel">—</p>
+            <button id="addBlock" class="btn ghost small">Add Block</button>
+          </div>
+
+          <div id="scheduleList" class="schedule-list"></div>
+        </section>
+
+        <section class="panel tasks">
+          <div class="panel-header">
+            <div>
+              <h3>Global Task List</h3>
+              <p class="muted">Capture anything not tied to a specific day.</p>
+            </div>
+            <div class="panel-actions">
+              <button id="toggleTaskEdit" class="btn ghost">Edit Tasks</button>
+            </div>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <input
+              id="taskInput"
+              type="text"
+              placeholder="Add a task..."
+              autocomplete="off"
+              required
+            />
+            <input
+              id="taskTag"
+              type="text"
+              placeholder="Tag (optional)"
+              autocomplete="off"
+            />
+            <button class="btn" type="submit">Add</button>
+          </form>
+
+          <div class="task-options">
+            <label class="toggle">
+              <input type="checkbox" id="showCompleted" checked />
+              <span>Show completed</span>
+            </label>
+            <button id="clearCompleted" class="btn ghost small">
+              Clear completed
+            </button>
+          </div>
+
+          <div id="taskList" class="task-list"></div>
+        </section>
+      </section>
+
+      <section class="panel notes">
+        <div class="panel-header">
+          <div>
+            <h3>Daily Notes</h3>
+            <p class="muted">Quick reflection or planning for today.</p>
+          </div>
+        </div>
+        <textarea id="dailyNotes" rows="4" placeholder="Write a few lines..."></textarea>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
